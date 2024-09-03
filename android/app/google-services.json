@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "54182601069",
+    "firebase_url": "https://tuddz-tsur4m-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "tuddz-tsur4m",
+    "storage_bucket": "tuddz-tsur4m.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54182601069:android:f1892520ab7fb0b1cd3a64",
+        "android_client_info": {
+          "package_name": "com.mycompany.tudds"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfuNZBJT4CQ0ToCiXbgOpcuah5_jT6dK8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
