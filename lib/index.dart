@@ -12,5 +12,7 @@ export '/pages/music/music_widget.dart' show MusicWidget;
 export '/pages/shop/shop_widget.dart' show ShopWidget;
 export '/pages/details/details_widget.dart' show DetailsWidget;
 export '/pages/onboarding/onboarding_widget.dart' show OnboardingWidget;
-export '/create_services/create_services_widget.dart' show CreateServicesWidget;
-export '/create_product/create_product_widget.dart' show CreateProductWidget;
+export '/pages/create_services/create_services_widget.dart'
+    show CreateServicesWidget;
+export '/pages/create_product/create_product_widget.dart'
+    show CreateProductWidget;
