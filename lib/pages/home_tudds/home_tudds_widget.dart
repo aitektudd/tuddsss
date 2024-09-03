@@ -89,20 +89,13 @@ class _HomeTuddsWidgetState extends State<HomeTuddsWidget>
           ),
         ],
       ),
-      'buttonOnPageLoadAnimation': AnimationInfo(
-        loop: true,
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
     });
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -283,14 +276,22 @@ class _HomeTuddsWidgetState extends State<HomeTuddsWidget>
                                                         AuthUserStreamWidget(
                                                           builder: (context) =>
                                                               Text(
-                                                            '₱ ${valueOrDefault<String>(
-                                                              valueOrDefault(
-                                                                      currentUserDocument
-                                                                          ?.userBalance,
-                                                                      0)
-                                                                  .toString(),
-                                                              '0.00',
-                                                            )}',
+                                                            valueOrDefault<String>(
+                                                              formatNumber(
+                                                                valueOrDefault(
+                                                                    currentUserDocument
+                                                                        ?.userBalance,
+                                                                    0),
+                                                                formatType:
+                                                                    FormatType
+                                                                        .decimal,
+                                                                decimalType:
+                                                                    DecimalType
+                                                                        .automatic,
+                                                                currency: '₱',
+                                                              ),
+                                                              '₱ 0.00',
+                                                            ),
                                                             textAlign:
                                                                 TextAlign.start,
                                                             style: FlutterFlowTheme
@@ -1255,7 +1256,7 @@ class _HomeTuddsWidgetState extends State<HomeTuddsWidget>
                                                                                       ),
                                                                                       borderRadius: BorderRadius.circular(8.0),
                                                                                     ),
-                                                                                  ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation']!),
+                                                                                  ),
                                                                                 ],
                                                                               ),
                                                                             ),
