@@ -1162,18 +1162,38 @@ class _HomeTuddsWidgetState extends State<HomeTuddsWidget>
                                                                                           ),
                                                                                     ),
                                                                                   ),
-                                                                                  Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                    child: Text(
-                                                                                      'Pasig city',
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                            color: FlutterFlowTheme.of(context).primaryText,
-                                                                                            fontSize: 12.0,
-                                                                                            letterSpacing: 0.0,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                  Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
+                                                                                      Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                        child: Text(
+                                                                                          'Pasig city',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                fontSize: 12.0,
+                                                                                                letterSpacing: 0.0,
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                              ),
+                                                                                        ),
+                                                                                      ),
+                                                                                      if (listViewServicesRecord.createdby == currentUserReference)
+                                                                                        InkWell(
+                                                                                          splashColor: Colors.transparent,
+                                                                                          focusColor: Colors.transparent,
+                                                                                          hoverColor: Colors.transparent,
+                                                                                          highlightColor: Colors.transparent,
+                                                                                          onTap: () async {
+                                                                                            await listViewServicesRecord.reference.delete();
+                                                                                          },
+                                                                                          child: Icon(
+                                                                                            Icons.delete_sharp,
+                                                                                            color: FlutterFlowTheme.of(context).error,
+                                                                                            size: 16.0,
                                                                                           ),
-                                                                                    ),
+                                                                                        ),
+                                                                                    ],
                                                                                   ),
                                                                                 ],
                                                                               ),

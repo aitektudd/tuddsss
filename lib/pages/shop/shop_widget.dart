@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -279,17 +280,47 @@ class _ShopWidgetState extends State<ShopWidget> with TickerProviderStateMixin {
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.end,
                                                 children: [
-                                                  const Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 4.0,
-                                                                0.0, 0.0),
-                                                    child: Icon(
-                                                      Icons
-                                                          .chevron_right_rounded,
-                                                      color: Color(0xFF57636C),
-                                                      size: 24.0,
-                                                    ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      if (listViewProductsRecord
+                                                              .createdby ==
+                                                          currentUserReference)
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      4.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              await listViewProductsRecord
+                                                                  .createdby!
+                                                                  .delete();
+                                                            },
+                                                            child: Icon(
+                                                              Icons
+                                                                  .delete_rounded,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
+                                                              size: 24.0,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                    ],
                                                   ),
                                                   Padding(
                                                     padding:

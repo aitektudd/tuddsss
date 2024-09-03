@@ -65,6 +65,11 @@ class ProductsRecord extends FirestoreRecord {
   String get image => _image ?? '';
   bool hasImage() => _image != null;
 
+  // "createdby" field.
+  DocumentReference? _createdby;
+  DocumentReference? get createdby => _createdby;
+  bool hasCreatedby() => _createdby != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _description = snapshotData['description'] as String?;
@@ -76,6 +81,7 @@ class ProductsRecord extends FirestoreRecord {
     _salePrice = castToType<double>(snapshotData['sale_price']);
     _quantity = castToType<int>(snapshotData['quantity']);
     _image = snapshotData['image'] as String?;
+    _createdby = snapshotData['createdby'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -123,6 +129,7 @@ Map<String, dynamic> createProductsRecordData({
   double? salePrice,
   int? quantity,
   String? image,
+  DocumentReference? createdby,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -136,6 +143,7 @@ Map<String, dynamic> createProductsRecordData({
       'sale_price': salePrice,
       'quantity': quantity,
       'image': image,
+      'createdby': createdby,
     }.withoutNulls,
   );
 
@@ -156,7 +164,8 @@ class ProductsRecordDocumentEquality implements Equality<ProductsRecord> {
         e1?.onSale == e2?.onSale &&
         e1?.salePrice == e2?.salePrice &&
         e1?.quantity == e2?.quantity &&
-        e1?.image == e2?.image;
+        e1?.image == e2?.image &&
+        e1?.createdby == e2?.createdby;
   }
 
   @override
@@ -170,7 +179,8 @@ class ProductsRecordDocumentEquality implements Equality<ProductsRecord> {
         e?.onSale,
         e?.salePrice,
         e?.quantity,
-        e?.image
+        e?.image,
+        e?.createdby
       ]);
 
   @override
